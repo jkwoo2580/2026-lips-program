@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026년 소상공인 투자연계 지원사업(LIPS) — 프로그램 종합 브리프</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============ DESIGN TOKENS ============ */
+  :root {
+    --ink:       #1A1F2E;
+    --body:     #2C3340;
+    --muted:    #6B7280;
+    --hairline: #D9DCE1;
+    --panel:    #F4F5F7;
+    --panel-2:  #FAFAFB;
+    --white:    #FFFFFF;
+    --accent:   #B8893A;  /* gold */
+    --accent2:  #1F4E8C;  /* navy */
+
+    --ff-title: "Inter", "Helvetica Neue", "Noto Sans KR", system-ui, sans-serif;
+    --ff-body:  "Inter", "Helvetica Neue", "Noto Sans KR", system-ui, sans-serif;
+
+    --max-w: 1200px;
+    --pad-x: clamp(20px, 5vw, 64px);
+    --pad-y: clamp(40px, 6vw, 80px);
+
+    --track-w: 60px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--body);
+    font-family: var(--ff-body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4 { font-family: var(--ff-title); color: var(--ink); margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+  p  { margin: 0; }
+  em { font-style: italic; color: var(--body); }
+
+  /* ============ CHROME (sticky top) ============ */
+  .chrome {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .chrome-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 12px var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px;
+  }
+  .chrome-brand,
+  .chrome-section {
+    font-family: var(--ff-title);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+  .chrome-section { text-align: right; }
+
+  /* ============ SECTION FRAME ============ */
+  section {
+    padding: var(--pad-y) var(--pad-x);
+    border-bottom: 1px solid var(--hairline);
+    scroll-margin-top: 64px;
+  }
+  section:last-of-type { border-bottom: 0; }
+  .wrap { max-width: var(--max-w); margin: 0 auto; }
+
+  .eyebrow {
+    font-family: var(--ff-title);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .headline {
+    font-size: clamp(22px, 3.4vw, 34px);
+    line-height: 1.25;
+    color: var(--ink);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .subhead {
+    font-size: clamp(14px, 1.6vw, 16px);
+    color: var(--body);
+    font-style: italic;
+    max-width: 92ch;
+    margin-bottom: 36px;
+  }
+
+  /* ============ COVER (slide 1) ============ */
+  .cover {
+    padding-top: clamp(60px, 9vw, 120px);
+    padding-bottom: clamp(60px, 9vw, 120px);
+  }
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: clamp(24px, 4vw, 56px);
+    align-items: center;
+  }
+  .cover-label {
+    font-family: var(--ff-title);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    margin-bottom: clamp(40px, 6vw, 64px);
+  }
+  .cover-title {
+    font-size: clamp(36px, 6.2vw, 64px);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .cover-rule {
+    width: 44px; height: 3px; background: var(--accent);
+    margin: clamp(20px, 3vw, 32px) 0 16px;
+  }
+  .cover-sub {
+    font-size: clamp(13px, 1.6vw, 16px);
+    color: var(--body);
+    font-style: italic;
+  }
+  .cover-cards { display: grid; gap: 14px; }
+  .kpi-card {
+    padding: 22px 22px;
+    background: var(--panel);
+    border-radius: 0;
+  }
+  .kpi-card.dark { background: var(--ink); color: var(--white); }
+  .kpi-card .label {
+    font-family: var(--ff-title); font-size: 10px; font-weight: 600;
+    color: var(--muted); letter-spacing: 0.28em; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .kpi-card.dark .label { color: #9CA3AF; }
+  .kpi-card .value {
+    font-family: var(--ff-title);
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .kpi-card.dark .value { color: var(--white); }
+  .kpi-card .note {
+    font-size: 12px; color: var(--muted);
+  }
+  .kpi-card.dark .note { color: #C7CAD1; }
+
+  .meta-row {
+    margin-top: clamp(40px, 6vw, 56px);
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    padding-top: 22px;
+    border-top: 1px solid var(--hairline);
+  }
+  .meta-row .label {
+    font-family: var(--ff-title); font-size: 9px; font-weight: 600;
+    color: var(--muted); letter-spacing: 0.32em; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .meta-row .value {
+    font-family: var(--ff-title); font-size: 14px; font-weight: 700; color: var(--ink);
+  }
+
+  /* ============ SECTION 2 — Executive Summary ============ */
+  .exec-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(24px, 4vw, 56px);
+    align-items: start;
+  }
+  .core-thesis-label {
+    font-family: var(--ff-title); font-size: 10px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.32em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .core-thesis {
+    font-size: clamp(20px, 2.8vw, 28px);
+    line-height: 1.3;
+    color: var(--ink); font-weight: 700;
+    margin-bottom: clamp(20px, 3vw, 28px);
+  }
+  .exec-body { font-size: 15px; color: var(--body); max-width: 56ch; margin-bottom: 24px; }
+  .takeaway {
+    background: var(--ink); color: var(--white);
+    padding: 14px 20px;
+    font-family: var(--ff-title); font-size: 13px; font-weight: 600;
+  }
+
+  .kpi-grid-4 {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .kpi-cell {
+    background: var(--panel);
+    padding: 22px 22px;
+    position: relative;
+    min-height: 150px;
+  }
+  .kpi-cell::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--accent);
+  }
+  .kpi-cell .label {
+    font-family: var(--ff-title); font-size: 10px; font-weight: 600;
+    color: var(--muted); letter-spacing: 0.24em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .kpi-cell .value {
+    font-family: var(--ff-title);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800; color: var(--ink); line-height: 1;
+    margin-bottom: 10px; letter-spacing: -0.02em;
+  }
+  .kpi-cell .note { font-size: 12.5px; color: var(--body); }
+
+  /* ============ SECTION 3 — Comparison panels ============ */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .panel {
+    border: 1px solid var(--hairline);
+    background: var(--white);
+  }
+  .panel-header {
+    padding: 18px 22px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px;
+    color: var(--white);
+  }
+  .panel.lips1 .panel-header { background: var(--ink); }
+  .panel.lips2 .panel-header { background: var(--accent2); }
+  .panel-title {
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  }
+  .panel-title .id {
+    font-family: var(--ff-title); font-size: 18px; font-weight: 800;
+    letter-spacing: 0.12em; color: var(--white);
+  }
+  .panel-title .sub {
+    font-size: 13px; font-style: italic;
+  }
+  .panel.lips1 .panel-title .sub { color: #C7CAD1; }
+  .panel.lips2 .panel-title .sub { color: #C7D2E6; }
+  .badge {
+    background: var(--accent); color: var(--white);
+    font-family: var(--ff-title); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; padding: 5px 10px;
+  }
+  .panel-body { padding: 6px 22px 18px; }
+  .kv {
+    display: grid; grid-template-columns: 110px 1fr;
+    gap: 12px; padding: 14px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .kv:last-child { border-bottom: 0; }
+  .kv .k {
+    font-family: var(--ff-title); font-size: 11px; font-weight: 600;
+    color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase;
+    padding-top: 3px;
+  }
+  .kv .v {
+    font-family: var(--ff-title); font-size: 14.5px; font-weight: 700;
+    color: var(--ink); line-height: 1.4;
+  }
+
+  /* ============ SECTION 4 — Eligibility ============ */
+  .sub-eyebrow {
+    font-family: var(--ff-title); font-size: 11px; font-weight: 700;
+    color: var(--accent2); letter-spacing: 0.24em; text-transform: uppercase;
+    margin-bottom: 16px; margin-top: 8px;
+  }
+  .req-grid {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .req-cell {
+    background: var(--panel);
+    padding: 22px 22px;
+    min-height: 170px;
+  }
+  .req-cell .num {
+    font-family: var(--ff-title); font-size: 12px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.24em; margin-bottom: 10px;
+  }
+  .req-cell .t {
+    font-family: var(--ff-title); font-size: 16px; font-weight: 700;
+    color: var(--ink); margin-bottom: 10px;
+  }
+  .req-cell .d {
+    font-size: 13px; color: var(--body); line-height: 1.5;
+  }
+
+  .track-grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .track-card {
+    border: 1px solid var(--hairline);
+    background: var(--white);
+    padding: 22px 22px 22px 26px;
+    position: relative;
+  }
+  .track-card::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px;
+  }
+  .track-card.seed::before { background: var(--accent); }
+  .track-card.scale::before { background: var(--accent2); }
+  .track-tag {
+    font-family: var(--ff-title); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .track-card.seed .track-tag { color: var(--accent); }
+  .track-card.scale .track-tag { color: var(--accent2); }
+  .track-card h4 {
+    font-size: 18px; color: var(--ink); margin-bottom: 8px;
+  }
+  .track-card p { font-size: 13.5px; color: var(--body); }
+
+  /* ============ SECTION 5 — LIPS I terms ============ */
+  .stat-row {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 36px;
+  }
+  .stat .label {
+    font-family: var(--ff-title); font-size: 10px; font-weight: 600;
+    color: var(--muted); letter-spacing: 0.28em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .stat .figure {
+    display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px;
+  }
+  .stat .figure .num {
+    font-family: var(--ff-title);
+    font-size: clamp(48px, 7vw, 84px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .stat .figure .unit {
+    font-size: clamp(15px, 1.8vw, 20px);
+    color: var(--body);
+    font-weight: 500;
+  }
+  .stat .note {
+    font-size: 13px; color: var(--body); font-style: italic;
+  }
+
+  .terms-row {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .term-block .t {
+    font-family: var(--ff-title); font-size: 12px; font-weight: 700;
+    color: var(--accent2); letter-spacing: 0.24em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .term-block .rule {
+    width: 28px; height: 2px; background: var(--accent);
+    margin-bottom: 14px;
+  }
+  .term-row {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .term-row .k {
+    font-family: var(--ff-title); font-size: 10.5px; font-weight: 600;
+    color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase;
+    padding-top: 3px;
+  }
+  .term-row .v {
+    font-family: var(--ff-title); font-size: 13.5px; font-weight: 700; color: var(--ink);
+  }
+
+  /* ============ SECTION 6 — LIPS II ============ */
+  .ii-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+  }
+  .chart-wrap {
+    background: var(--white);
+  }
+  .chart-bars {
+    display: flex; align-items: flex-end; gap: 36px;
+    height: 280px;
+    padding: 20px 8px 0;
+    border-bottom: 1px solid var(--hairline);
+    position: relative;
+  }
+  .chart-bars::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 50%;
+    border-top: 1px dashed var(--hairline);
+  }
+  .chart-bar {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    gap: 8px;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
+  }
+  .chart-bar .v {
+    font-family: var(--ff-title); font-size: 18px; font-weight: 700;
+    color: var(--ink);
+  }
+  .chart-bar .col {
+    width: 100%;
+    max-width: 110px;
+  }
+  .chart-bar.seed .col { background: var(--ink); height: 50%; }
+  .chart-bar.scale .col { background: var(--accent); height: 100%; }
+  .chart-labels {
+    display: flex; gap: 36px;
+    padding: 16px 8px 0;
+  }
+  .chart-labels > div {
+    flex: 1; text-align: center;
+    font-size: 12.5px; color: var(--body);
+  }
+  .chart-foot {
+    font-size: 12px; color: var(--muted); font-style: italic;
+    margin-top: 10px;
+  }
+
+  .stack-block { margin-bottom: 28px; }
+  .stack-bar {
+    display: flex; height: 44px; overflow: hidden;
+    margin-bottom: 8px;
+    border: 1px solid var(--hairline);
+  }
+  .stack-bar .seg {
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--ff-title); font-size: 12px; font-weight: 700;
+    color: var(--white);
+  }
+  .stack-bar .seg.gov   { background: var(--ink);    flex: 70; }
+  .stack-bar .seg.cash  { background: var(--accent); flex: 10; font-size: 10.5px; white-space: nowrap; padding: 0 4px; }
+  .stack-bar .seg.inkind{ background: var(--panel);  flex: 20; color: var(--body); }
+  .stack-foot { font-size: 12px; color: var(--muted); font-style: italic; }
+
+  .tag-grid {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .tag {
+    background: var(--panel); padding: 10px 8px;
+    text-align: center; font-size: 12.5px; color: var(--ink);
+  }
+  .ii-foot {
+    margin-top: 16px;
+    font-family: var(--ff-title); font-size: 12.5px; font-weight: 700;
+    color: var(--accent); font-style: italic;
+  }
+
+  /* ============ SECTION 7 — Process Flow ============ */
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .step {
+    border: 1px solid var(--hairline);
+    background: var(--white);
+    position: relative;
+    min-height: 200px;
+    display: flex; flex-direction: column;
+  }
+  .step .head {
+    background: var(--ink); color: var(--white);
+    padding: 8px 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .step .head .n {
+    font-family: var(--ff-title); font-size: 14px; font-weight: 800;
+    color: var(--accent); letter-spacing: 0.16em;
+  }
+  .step .head .l {
+    font-family: var(--ff-title); font-size: 9px; color: #9CA3AF;
+    letter-spacing: 0.28em;
+  }
+  .step .body { padding: 12px 14px; flex: 1; }
+  .step .body .t {
+    font-family: var(--ff-title); font-size: 13.5px; font-weight: 700;
+    color: var(--ink); margin-bottom: 10px;
+  }
+  .step .body .d {
+    font-size: 11.5px; color: var(--body); line-height: 1.5;
+    white-space: pre-line;
+  }
+
+  .gates {
+    background: var(--panel);
+    padding: 22px 24px;
+  }
+  .gates .gates-eyebrow {
+    font-family: var(--ff-title); font-size: 10px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.32em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .gates-grid {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .gate .k {
+    font-family: var(--ff-title); font-size: 13px; font-weight: 700;
+    color: var(--ink); margin-bottom: 4px;
+  }
+  .gate .v {
+    font-size: 12.5px; color: var(--body);
+  }
+
+  /* ============ SECTION 8 — Pre-check & Risk ============ */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 3vw, 32px);
+  }
+  .pre-check-list { }
+  .pre-row {
+    display: grid; grid-template-columns: 44px 1fr;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pre-row:last-child { border-bottom: 0; }
+  .pre-row .n {
+    width: 34px; height: 34px;
+    background: var(--ink); color: var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--ff-title); font-weight: 700; font-size: 13px;
+  }
+  .pre-row .t {
+    font-family: var(--ff-title); font-size: 14.5px; font-weight: 700;
+    color: var(--ink); margin-bottom: 4px;
+  }
+  .pre-row .d { font-size: 13px; color: var(--body); }
+
+  .risk-cards { display: grid; gap: 16px; }
+  .risk-box {
+    padding: 20px 22px;
+  }
+  .risk-box.dark { background: var(--ink); color: var(--white); }
+  .risk-box.light {
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--accent);
+  }
+  .risk-box .lbl {
+    font-family: var(--ff-title); font-size: 10px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.28em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .risk-item { margin-bottom: 10px; }
+  .risk-item:last-child { margin-bottom: 0; }
+  .risk-item .t {
+    font-family: var(--ff-title); font-weight: 700; font-size: 13.5px;
+    margin-bottom: 2px;
+  }
+  .risk-box.dark .risk-item .t { color: var(--white); }
+  .risk-box.light .risk-item .t { color: var(--ink); }
+  .risk-item .d { font-size: 12.5px; line-height: 1.5; }
+  .risk-box.dark .risk-item .d { color: #C7CAD1; }
+  .risk-box.light .risk-item .d { color: var(--body); }
+
+  /* ============ SECTION 9 — Apply & Contacts ============ */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  /* reuses .panel from section 3 */
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 28px var(--pad-x);
+    background: var(--white);
+    border-top: 1px solid var(--hairline);
+  }
+  .footer-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+    font-family: var(--ff-title);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  /* ============ TABLET ============ */
+  @media (max-width: 960px) {
+    .cover-grid { grid-template-columns: 1fr; }
+    .exec-grid { grid-template-columns: 1fr; }
+    .ii-grid { grid-template-columns: 1fr; }
+    .req-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .terms-row { grid-template-columns: 1fr; gap: 28px; }
+    .stat-row { grid-template-columns: 1fr; gap: 28px; }
+    .gates-grid { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 640px) {
+    body { font-size: 15px; }
+    section { padding: 48px 20px; }
+    .chrome-section { display: none; }
+
+    .cover-title { font-size: clamp(32px, 9vw, 44px); }
+    .meta-row { grid-template-columns: 1fr; gap: 14px; }
+    .meta-row > div { padding-bottom: 14px; border-bottom: 1px solid var(--hairline); }
+    .meta-row > div:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .compare-grid { grid-template-columns: 1fr; }
+    .req-grid { grid-template-columns: 1fr; }
+    .track-grid { grid-template-columns: 1fr; }
+
+    .kv { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
+    .kv .k { padding-top: 0; }
+
+    .flow { grid-template-columns: 1fr; }
+    .step { min-height: 0; }
+
+    .risk-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+
+    .term-row { grid-template-columns: 1fr; gap: 2px; padding: 8px 0; border-bottom: 1px solid var(--hairline); }
+    .term-row:last-child { border-bottom: 0; }
+    .term-row .k { padding-top: 0; }
+
+    .tag-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .stat .figure .num { font-size: 56px; }
+
+    .core-thesis { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ STICKY CHROME ============ -->
+<div class="chrome">
+  <div class="chrome-inner">
+    <div class="chrome-brand">LIPS 2026 &nbsp;/&nbsp; Consulting Brief</div>
+    <div class="chrome-section" id="chromeSection">Cover</div>
+  </div>
+</div>
+
+<!-- ============ SECTION 1 — COVER ============ -->
+<section class="cover" data-section="Cover">
+  <div class="wrap">
+    <div class="cover-grid">
+      <div>
+        <div class="cover-label">2026 &nbsp;/&nbsp; Program Summary</div>
+        <h1 class="cover-title">
+          2026년 소상공인<br/>
+          투자연계 지원사업 (LIPS)
+        </h1>
+        <div class="cover-rule"></div>
+        <p class="cover-sub">
+          Linked Investment Program for Small-business — 프로그램 종합 브리프
+        </p>
+
+        <div class="meta-row">
+          <div>
+            <div class="label">Prepared For</div>
+            <div class="value">고객사 컨설팅 미팅용</div>
+          </div>
+          <div>
+            <div class="label">Date</div>
+            <div class="value">2026</div>
+          </div>
+          <div>
+            <div class="label">Issuer</div>
+            <div class="value">소상공인시장진흥공단</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-cards">
+        <div class="kpi-card">
+          <div class="label">총 사업규모</div>
+          <div class="value">660억원</div>
+          <div class="note">LIPS Ⅰ 360억 + LIPS Ⅱ 300억</div>
+        </div>
+        <div class="kpi-card dark">
+          <div class="label">기업당 최대</div>
+          <div class="value">5억원</div>
+          <div class="note">LIPS Ⅰ 매칭융자 한도</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 — EXECUTIVE SUMMARY ============ -->
+<section data-section="01 Executive Summary">
+  <div class="wrap">
+    <div class="eyebrow">프로그램 개요</div>
+    <h2 class="headline">민간투자 유치 소상공인을 대상으로 한 정부 매칭형 패키지 지원</h2>
+    <p class="subhead">운영사 先투자가 모든 신청의 절대적 전제조건이며, 융자(LIPS Ⅰ)와 사업화(LIPS Ⅱ) 두 축으로 운영된다.</p>
+
+    <div class="exec-grid">
+      <div>
+        <div class="core-thesis-label">Core Thesis</div>
+        <p class="core-thesis">"민간이 검증한 유망 소상공인에게<br/>정부가 자금을 더한다"</p>
+        <p class="exec-body">운영사(CVC·AC·창조경제혁신센터 등 60개사)의 선투자 및 추천을 받은 소상공인만이 신청 가능하며, 정부는 검증된 기업에 대해 매칭 융자 또는 사업화자금을 제공한다.</p>
+        <div class="takeaway">Takeaway · 운영사 매칭이 사실상의 "1차 관문"이다.</div>
+      </div>
+
+      <div class="kpi-grid-4">
+        <div class="kpi-cell">
+          <div class="label">지원 트랙</div>
+          <div class="value">2개</div>
+          <div class="note">LIPS Ⅰ 매칭융자 · LIPS Ⅱ 사업화</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="label">지정 운영사</div>
+          <div class="value">60개사</div>
+          <div class="note">CVC · 창조경제혁신센터 · AC</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="label">추천서 유효</div>
+          <div class="value">2개월</div>
+          <div class="note">발급일 기준, 경과 시 재발급</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="label">발표평가 시간</div>
+          <div class="value">25분</div>
+          <div class="note">발표 15분 + 질의응답 10분</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 — TWO PROGRAMS ============ -->
+<section data-section="02 Program Architecture">
+  <div class="wrap">
+    <div class="eyebrow">두 트랙 구조</div>
+    <h2 class="headline">LIPS Ⅰ과 LIPS Ⅱ는 자금 성격과 운영 주체가 다르다</h2>
+    <p class="subhead">Ⅰ은 정책자금 융자, Ⅱ는 사업화 보조금. 동시 신청 불가 — Ⅱ 선정 후 Ⅰ 신청이 권장 동선.</p>
+
+    <div class="compare-grid">
+      <div class="panel lips1">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="id">LIPS &nbsp;Ⅰ</span>
+            <span class="sub">민간투자 연계형 매칭융자</span>
+          </div>
+          <span class="badge">LOAN</span>
+        </div>
+        <div class="panel-body">
+          <div class="kv"><div class="k">사업 규모</div><div class="v">직접대출 360억원</div></div>
+          <div class="kv"><div class="k">기업당 한도</div><div class="v">선투자금의 최대 5배 (최대 5억원)</div></div>
+          <div class="kv"><div class="k">자금 성격</div><div class="v">운전·시설 자금 (장기 융자)</div></div>
+          <div class="kv"><div class="k">대출 조건</div><div class="v">기준금리+0.4%p, 8년 (거치 3년)</div></div>
+          <div class="kv"><div class="k">주관 기관</div><div class="v">소상공인시장진흥공단</div></div>
+        </div>
+      </div>
+
+      <div class="panel lips2">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="id">LIPS &nbsp;Ⅱ</span>
+            <span class="sub">혁신소상공인 투자연계 사업화 지원</span>
+          </div>
+          <span class="badge">GRANT</span>
+        </div>
+        <div class="panel-body">
+          <div class="kv"><div class="k">사업 규모</div><div class="v">사업화 지원 300억원 (약 300개사)</div></div>
+          <div class="kv"><div class="k">기업당 한도</div><div class="v">선투자금의 최대 3배 (최대 1~2억원)</div></div>
+          <div class="kv"><div class="k">자금 성격</div><div class="v">사업화 보조금 (정부 70% + 자부담 30%)</div></div>
+          <div class="kv"><div class="k">지원 항목</div><div class="v">개발·브랜딩·홍보·해외진출 등</div></div>
+          <div class="kv"><div class="k">주관 기관</div><div class="v">(사)초기투자액셀러레이터협회</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4 — ELIGIBILITY ============ -->
+<section data-section="03 Eligibility">
+  <div class="wrap">
+    <div class="eyebrow">신청 자격 요건</div>
+    <h2 class="headline">공통요건 4개를 모두 충족하고, 트랙별 추가요건을 만족해야 한다</h2>
+    <p class="subhead">특히 LIPS Ⅱ는 시드 / 스케일업 두 유형으로 분기되며 매출 또는 수출 요건이 추가된다.</p>
+
+    <div class="sub-eyebrow">공통요건 · 4개 항목 동시 충족</div>
+    <div class="req-grid">
+      <div class="req-cell">
+        <div class="num">01</div>
+        <div class="t">운영사 선투자</div>
+        <div class="d">공고일 기준 3년 이내 지정 운영사로부터 투자 유치 및 추천서 보유</div>
+      </div>
+      <div class="req-cell">
+        <div class="num">02</div>
+        <div class="t">소상공인 기준</div>
+        <div class="d">상시근로자 5인 미만(제조업 등 10인 미만) — 중기확인서 "소기업" 표기</div>
+      </div>
+      <div class="req-cell">
+        <div class="num">03</div>
+        <div class="t">업력 1년 이상</div>
+        <div class="d">개업일 또는 회사성립일 기준 1년 이상 경과</div>
+      </div>
+      <div class="req-cell">
+        <div class="num">04</div>
+        <div class="t">정책자금 적격 업종</div>
+        <div class="d">융자 제외 업종 미해당, 대출제한사항(연체·체납·부채율 700%↑ 등) 없음</div>
+      </div>
+    </div>
+
+    <div class="sub-eyebrow">트랙별 추가요건 · LIPS Ⅱ 유형 분기</div>
+    <div class="track-grid">
+      <div class="track-card seed">
+        <div class="track-tag">시드립스 · Seed</div>
+        <h4>최초 3천만원 이상 투자 유치</h4>
+        <p>지정 운영사로부터 신규 투자 유치 사실이 확인된 초기 단계 소상공인 대상</p>
+      </div>
+      <div class="track-card scale">
+        <div class="track-tag">스케일-업 립스 · Scale-up</div>
+        <h4>5천만원 이상 + 성장 요건</h4>
+        <p>① 직전년도 매출 ≥ 소기업기준 50% &nbsp; 또는 &nbsp; ② 최근 1년 수출 ≥ 3만 불</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5 — LIPS I terms ============ -->
+<section data-section="04 LIPS Ⅰ — Funding Terms">
+  <div class="wrap">
+    <div class="eyebrow">LIPS Ⅰ 자금 조건</div>
+    <h2 class="headline">선투자금의 최대 5배, 기업당 5억원까지 장기 저리 융자</h2>
+    <p class="subhead">기준금리 변동 + 0.4%p, 8년 만기, 거치 3년까지 자율 선택. 우대금리로 최대 0.8%p 추가 감면 가능.</p>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="label">총 예산</div>
+        <div class="figure"><span class="num">360</span><span class="unit">억원</span></div>
+        <div class="note">직접대출 형태</div>
+      </div>
+      <div class="stat">
+        <div class="label">기업당 최대</div>
+        <div class="figure"><span class="num">5</span><span class="unit">억원</span></div>
+        <div class="note">선투자금 5배 한도</div>
+      </div>
+      <div class="stat">
+        <div class="label">대출 기간</div>
+        <div class="figure"><span class="num">8</span><span class="unit">년</span></div>
+        <div class="note">거치 최대 3년</div>
+      </div>
+    </div>
+
+    <div class="terms-row">
+      <div class="term-block">
+        <div class="t">대출 금리</div>
+        <div class="rule"></div>
+        <div class="term-row"><div class="k">기본금리</div><div class="v">정책자금 기준금리(변동) + 0.4%p</div></div>
+        <div class="term-row"><div class="k">우대금리</div><div class="v">최대 -0.8%p 추가 감면 가능</div></div>
+        <div class="term-row"><div class="k">가점</div><div class="v">기업가형 인증기업 +5점</div></div>
+      </div>
+      <div class="term-block">
+        <div class="t">상환 구조</div>
+        <div class="rule"></div>
+        <div class="term-row"><div class="k">만기</div><div class="v">8년</div></div>
+        <div class="term-row"><div class="k">거치기간</div><div class="v">3년 이내 (연 단위 자율 선택)</div></div>
+        <div class="term-row"><div class="k">상환방식</div><div class="v">거치 후 매월 원금균등분할</div></div>
+      </div>
+      <div class="term-block">
+        <div class="t">자금 용도</div>
+        <div class="rule"></div>
+        <div class="term-row"><div class="k">운전자금</div><div class="v">제품 생산·기업 경영</div></div>
+        <div class="term-row"><div class="k">시설자금</div><div class="v">기계·설비 도입</div></div>
+        <div class="term-row"><div class="k">주의</div><div class="v">용도 외 사용 시 대출금 조기 회수</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6 — LIPS II ============ -->
+<section data-section="05 LIPS Ⅱ — Grant Terms">
+  <div class="wrap">
+    <div class="eyebrow">LIPS Ⅱ 사업화자금 조건</div>
+    <h2 class="headline">선투자금의 3배, 시드 최대 1억 · 스케일업 최대 2억원</h2>
+    <p class="subhead">정부지원금 70% 이하 + 자부담 30% 이상(현금 10%↑, 현물 20%↓). e-나라도움 집행·이행보증보험 필수.</p>
+
+    <div class="ii-grid">
+      <div class="chart-wrap">
+        <div class="sub-eyebrow" style="margin-top:0;">유형별 지원한도</div>
+        <div class="chart-bars">
+          <div class="chart-bar seed">
+            <div class="v">1.0억</div>
+            <div class="col"></div>
+          </div>
+          <div class="chart-bar scale">
+            <div class="v">2.0억</div>
+            <div class="col"></div>
+          </div>
+        </div>
+        <div class="chart-labels">
+          <div>시드립스<br/>(250개사 내외)</div>
+          <div>스케일업 립스<br/>(50개사 내외)</div>
+        </div>
+        <p class="chart-foot">* 모두 선투자금의 최대 3배 범위 내 차등 지원</p>
+      </div>
+
+      <div>
+        <div class="stack-block">
+          <div class="sub-eyebrow" style="margin-top:0;">총사업비 구성</div>
+          <div class="stack-bar">
+            <div class="seg gov">정부지원금 70%</div>
+            <div class="seg cash">10%</div>
+            <div class="seg inkind">현물 20%</div>
+          </div>
+          <p class="stack-foot">자부담 30% 이상 (현금 10%↑ + 현물 20%↓)</p>
+        </div>
+
+        <div class="sub-eyebrow">지원 가능 항목</div>
+        <div class="tag-grid">
+          <div class="tag">개발비</div>
+          <div class="tag">브랜드비</div>
+          <div class="tag">홍보비</div>
+          <div class="tag">특허·상표 수수료</div>
+          <div class="tag">전문가 활용</div>
+          <div class="tag">임차비</div>
+          <div class="tag">재료구입</div>
+          <div class="tag">매장 모델링</div>
+          <div class="tag">해외진출</div>
+        </div>
+        <p class="ii-foot">+ 후속투자 IR, 바이어 매칭, 마케팅·세무·법률·특허 멘토링 동반 제공</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7 — PROCESS ============ -->
+<section data-section="06 Process Flow">
+  <div class="wrap">
+    <div class="eyebrow">신청 절차</div>
+    <h2 class="headline">운영사 선투자 → 추천 → 신청 → 평가 → 협약·실행의 6단계</h2>
+    <p class="subhead">LIPS Ⅰ은 융자심의위원회, LIPS Ⅱ는 발표평가(70점 미만 탈락)를 거친다.</p>
+
+    <div class="flow">
+      <div class="step"><div class="head"><span class="n">01</span><span class="l">STEP</span></div>
+        <div class="body"><div class="t">운영사 선투자</div><div class="d">투자제안서 송부
+검토 평균 4주</div></div>
+      </div>
+      <div class="step"><div class="head"><span class="n">02</span><span class="l">STEP</span></div>
+        <div class="body"><div class="t">추천서 발급</div><div class="d">운영사가 공단에
+선투자 추천서 제출</div></div>
+      </div>
+      <div class="step"><div class="head"><span class="n">03</span><span class="l">STEP</span></div>
+        <div class="body"><div class="t">온라인 접수</div><div class="d">Ⅰ: ols.semas.or.kr
+Ⅱ: 소상공인24</div></div>
+      </div>
+      <div class="step"><div class="head"><span class="n">04</span><span class="l">STEP</span></div>
+        <div class="body"><div class="t">요건·서류 평가</div><div class="d">자격 검토 및
+투자형태 적정성</div></div>
+      </div>
+      <div class="step"><div class="head"><span class="n">05</span><span class="l">STEP</span></div>
+        <div class="body"><div class="t">발표·심의</div><div class="d">25분 (발표 15+질의 10)
+Ⅱ: 70점 미만 탈락</div></div>
+      </div>
+      <div class="step"><div class="head"><span class="n">06</span><span class="l">STEP</span></div>
+        <div class="body"><div class="t">협약·실행</div><div class="d">Ⅰ: 대출 실행
+Ⅱ: 협약 및 자금배정</div></div>
+      </div>
+    </div>
+
+    <div class="gates">
+      <div class="gates-eyebrow">Key Gates · 반드시 통과해야 할 관문</div>
+      <div class="gates-grid">
+        <div class="gate">
+          <div class="k">추천서 유효기간</div>
+          <div class="v">발급일로부터 2개월 이내, 경과 시 재발급 필요</div>
+        </div>
+        <div class="gate">
+          <div class="k">심의/평가 참석</div>
+          <div class="v">소상공인 본인 + 운영사 동반 참석 필수</div>
+        </div>
+        <div class="gate">
+          <div class="k">동시 신청 금지</div>
+          <div class="v">Ⅰ·Ⅱ 동시 불가 — Ⅱ 선정 후 Ⅰ 신청 권장</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8 — PRE-CHECK & RISKS ============ -->
+<section data-section="07 Pre-Check & Risks">
+  <div class="wrap">
+    <div class="eyebrow">사전 점검사항 및 리스크</div>
+    <h2 class="headline">탈락·환수를 부르는 실수는 대부분 신청 전 단계에서 결정된다</h2>
+    <p class="subhead">고객사 컨설팅 시 다음 4개 영역의 사전 점검이 권장된다.</p>
+
+    <div class="risk-grid">
+      <div>
+        <div class="sub-eyebrow" style="margin-top:0;">Pre-check · 신청 전 점검 4가지</div>
+        <div class="pre-check-list">
+          <div class="pre-row">
+            <div class="n">1</div>
+            <div>
+              <div class="t">운영사 매칭</div>
+              <div class="d">60개 지정 운영사에 투자제안서 송부 — 본 사업의 절대적 전제조건</div>
+            </div>
+          </div>
+          <div class="pre-row">
+            <div class="n">2</div>
+            <div>
+              <div class="t">중기확인서</div>
+              <div class="d">sminfo.mss.go.kr에서 "소기업(소상공인)" 표기 사전 확인 필수</div>
+            </div>
+          </div>
+          <div class="pre-row">
+            <div class="n">3</div>
+            <div>
+              <div class="t">지식재산권</div>
+              <div class="d">특허·디자인 등록원부는 발표평가 가점 자료 — 사전 지참 권장</div>
+            </div>
+          </div>
+          <div class="pre-row">
+            <div class="n">4</div>
+            <div>
+              <div class="t">마이데이터 연동</div>
+              <div class="d">동의 시 다수 서류 자동 제출 — 서류 누락 리스크 감소</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-cards">
+        <div class="risk-box dark">
+          <div class="lbl">Disqualification · 탈락 사유</div>
+          <div class="risk-item">
+            <div class="t">타인 명의 신청</div>
+            <div class="d">주 대표자 본인 신청 필수, 위반 시 탈락</div>
+          </div>
+          <div class="risk-item">
+            <div class="t">추천서 유효기간 경과</div>
+            <div class="d">2개월 이내 — 경과 시 재발급 필요</div>
+          </div>
+          <div class="risk-item">
+            <div class="t">발표평가 70점 미만 (LIPS Ⅱ)</div>
+            <div class="d">요건 충족하더라도 점수 미달 시 제외</div>
+          </div>
+        </div>
+
+        <div class="risk-box light">
+          <div class="lbl">Claw-back · 사후 환수·제재 사유</div>
+          <div class="risk-item">
+            <div class="t">자금 용도 외 사용</div>
+            <div class="d">대출 3개월 내 증빙 검토 — 조기 회수 + 3년 신규대출 제한</div>
+          </div>
+          <div class="risk-item">
+            <div class="t">친족·내부 거래 (LIPS Ⅱ)</div>
+            <div class="d">운영사·대표자 전현직 직장과의 외주용역 거래 일체 불가</div>
+          </div>
+          <div class="risk-item">
+            <div class="t">이행보증보험 미제출 (LIPS Ⅱ)</div>
+            <div class="d">미제출 시 협약 불가</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 9 — APPLY & CONTACTS ============ -->
+<section data-section="08 Apply & Contacts">
+  <div class="wrap">
+    <div class="eyebrow">신청 채널 및 문의처</div>
+    <h2 class="headline">신청 기간 2026. 4. 1.(수) 10:00 ~ 예산 소진 시까지</h2>
+    <p class="subhead">트랙별 신청 플랫폼이 분리되어 있으며, 운영사 매칭 채널은 별도로 확보해야 한다.</p>
+
+    <div class="contact-grid">
+      <div class="panel lips1">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="id">LIPS &nbsp;Ⅰ</span>
+            <span class="sub">매칭융자</span>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="kv"><div class="k">신청 채널</div><div class="v">소상공인 정책자금 누리집</div></div>
+          <div class="kv"><div class="k">URL</div><div class="v"><a href="https://ols.semas.or.kr" style="color:var(--ink);text-decoration:underline;">ols.semas.or.kr</a></div></div>
+          <div class="kv"><div class="k">대체 채널</div><div class="v">관할 지역센터 방문 (시설자금 단독 또는 디지털 취약 신청자)</div></div>
+          <div class="kv"><div class="k">문의 전화</div><div class="v">042-363-7740 / 7724</div></div>
+          <div class="kv"><div class="k">담당 부서</div><div class="v">소상공인시장진흥공단 기업가형소상공인육성팀</div></div>
+        </div>
+      </div>
+
+      <div class="panel lips2">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="id">LIPS &nbsp;Ⅱ</span>
+            <span class="sub">사업화 지원</span>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="kv"><div class="k">신청 채널</div><div class="v">소상공인24</div></div>
+          <div class="kv"><div class="k">URL</div><div class="v"><a href="https://www.sbiz24.kr" style="color:var(--ink);text-decoration:underline;">www.sbiz24.kr</a> (모바일 신청 불가)</div></div>
+          <div class="kv"><div class="k">신청 주체</div><div class="v">주 대표자 본인만 가능 — 신청완료 후 수정·삭제 불가</div></div>
+          <div class="kv"><div class="k">문의 전화</div><div class="v">070-7588-1823 / 1820 / 1824 / 1826</div></div>
+          <div class="kv"><div class="k">담당 부서</div><div class="v">(사)초기투자액셀러레이터협회 립스본부</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div>Source · 소상공인시장진흥공단 / (사)초기투자액셀러레이터협회 2026년 공고</div>
+    <div>Confidential · Internal Use</div>
+  </div>
+</footer>
+
+<script>
+  // Update chrome section label as user scrolls
+  (function(){
+    const sections = document.querySelectorAll('section[data-section]');
+    const label = document.getElementById('chromeSection');
+    if (!('IntersectionObserver' in window) || !label) return;
+    const io = new IntersectionObserver((entries) => {
+      // Pick the entry with the highest intersection ratio that's currently intersecting
+      let best = null;
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
+        }
+      }
+      if (best) {
+        const name = best.target.getAttribute('data-section');
+        if (name) label.textContent = name;
+      }
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+    sections.forEach(s => io.observe(s));
+  })();
+</script>
+
+</body>
+</html>
